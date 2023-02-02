@@ -133,13 +133,37 @@
             padding: 3%;
             border-bottom: 1px solid white;
             font-weight: 200;
+            cursor: pointer;
         .profile{
             width: 35px;
             height: 35px;
             border-radius: 50%;
             object-fit: cover;
         }
+        &:hover{
+            background-color: black;
+        }
     }
+        }
+        .chats{
+            .search-results{
+                display: flex;
+                gap: 10px;
+                align-items: center; 
+                margin: 20px;
+                padding: 3%;
+                font-weight: 200;
+                cursor: pointer;
+            .profile{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            &:hover{
+                background-color: black;
+            }
+        }
         }
     }
     .chat{
