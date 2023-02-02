@@ -25,7 +25,10 @@ const Register = () => {
             <img src={lace} className="icon" alt="lace" />
           </button>
         </form>
-        <p className="login">have an account with us? login</p>
+        <p className="login">
+          have an account with us?
+          <span style={{ color: "cyan", marginLeft: "5px" }}> login</span>
+        </p>
       </div>
     </div>
   );
