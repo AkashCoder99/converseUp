@@ -2,7 +2,7 @@ import React from "react";
 
 const Message = () => {
   return (
-    <div className="message">
+    <div className="message owner">
       <div className="message-info">
         <img
           src="https://pbs.twimg.com/profile_images/1590363423011110912/x0jZMgC5_400x400.jpg"

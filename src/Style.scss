@@ -1,3 +1,21 @@
+@mixin mobile{
+    @media screen and (max-width:480px){
+        @content
+    }
+}
+
+@mixin tablet{
+    @media screen and (max-width:768px){
+        @content
+    }
+}
+
+@mixin laptop{
+    @media screen and (max-width:1200px){
+        @content
+    }
+}
+
 .form-container{
     background-color: rgb(36, 35, 35);
     height: 100vh;
@@ -92,7 +110,10 @@
     border-radius: 10px;
     overflow: hidden;
     .sidebar{
-        flex: 2;
+        @include mobile{
+            display: none;
+        }
+        flex: 1;
         border-right: 1px solid white;
         .navbar{
             display: flex;
@@ -186,7 +207,7 @@
             font-size: 18px;
         }
         .messages{
-            height: calc(100% - 132px);
+            height: calc(100% - 133px);
             overflow-x: hidden;
             padding: 10px;
         .message{
@@ -195,6 +216,7 @@
         .message-info{
             display: flex;
             flex-direction: column;
+            gap: 5px;
             img{  
             width: 35px;
             height: 35px;
@@ -218,7 +240,18 @@
         }
         span{
             font-size: 10px;
-        }          
+        }  
+        
+       
+        &.owner {
+            flex-direction: row-reverse;
+            .message-content{
+                align-items: flex-end;
+                background-color: black;
+                border-radius: 10px 0px 10px 10px;
+                color: white;
+            }
+        }
         }
         }
         .input{
