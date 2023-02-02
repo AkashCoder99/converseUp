@@ -9,7 +9,7 @@ const Register = () => {
         <p className="logo-text">
           Converse Up! <img src={shoe} className="logo" alt="logo" />
         </p>
-        <span className="title">Register</span>
+        <span className="title">Login</span>
         <form>
           <input type="email" placeholder="enter your email id" />
           <input type="password" placeholder="enter a password" />
