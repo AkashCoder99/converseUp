@@ -9,7 +9,10 @@ const Chats = () => {
           src="https://pbs.twimg.com/profile_images/1590363423011110912/x0jZMgC5_400x400.jpg"
           alt="profile"
         />
-        <span>Punit Bathija</span>
+        <div className="profile-content">
+          <span>Punit Bathija</span>
+          <span>Hello</span>
+        </div>
       </div>
     </div>
   );
