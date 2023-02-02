@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import shoe from "../Assets/shoe.svg";
 import lace from "../Assets/lace.svg";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import GoogleIcon from "@mui/icons-material/Google";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.config";
 
 const Register = () => {
+  const [err, setErr] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const displayName = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+    const file = e.target[3].files[0];
+
+    try {
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      ).then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      });
+    } catch (error) {
+      setErr(true);
+    }
+  };
+
   return (
     <div className="form-container">
       <div className="form-wrapper">
@@ -12,7 +36,7 @@ const Register = () => {
           Converse Up! <img src={shoe} className="logo" alt="logo" />
         </p>
         <span className="title">Register</span>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input type="text" placeholder="enter your display name" />
           <input type="email" placeholder="enter your email id" />
           <input type="password" placeholder="enter a password" />
@@ -28,6 +52,7 @@ const Register = () => {
           <button className="btn">
             Knot Up using <GoogleIcon />
           </button>
+          {err && <span>Something went wrong...</span>}
         </form>
         <p className="login">
           have an account with us?

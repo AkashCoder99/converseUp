@@ -3,7 +3,7 @@ import shoe from "../Assets/shoe.svg";
 import run from "../Assets/run.svg";
 import GoogleIcon from "@mui/icons-material/Google";
 
-const Register = () => {
+const Login = () => {
   return (
     <div className="form-container">
       <div className="form-wrapper">
@@ -31,4 +31,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
