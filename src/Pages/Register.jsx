@@ -2,6 +2,7 @@ import React from "react";
 import shoe from "../Assets/shoe.svg";
 import lace from "../Assets/lace.svg";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import GoogleIcon from "@mui/icons-material/Google";
 
 const Register = () => {
   return (
@@ -23,6 +24,9 @@ const Register = () => {
           <button className="btn">
             Knot Up!
             <img src={lace} className="icon" alt="lace" />
+          </button>
+          <button className="btn">
+            Knot Up using <GoogleIcon />
           </button>
         </form>
         <p className="login">

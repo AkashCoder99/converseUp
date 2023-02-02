@@ -1,6 +1,7 @@
 import React from "react";
 import shoe from "../Assets/shoe.svg";
 import run from "../Assets/run.svg";
+import GoogleIcon from "@mui/icons-material/Google";
 
 const Register = () => {
   return (
@@ -16,6 +17,9 @@ const Register = () => {
           <button className="btn">
             Charge In!
             <img src={run} className="icon" alt="run" />
+          </button>
+          <button className="btn">
+            Charge In using <GoogleIcon />
           </button>
         </form>
         <p className="login">
