@@ -1,5 +1,7 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import Messages from "./Messages";
+import Input from "./Input";
 
 const Chat = () => {
   return (
@@ -8,6 +10,8 @@ const Chat = () => {
         <span>Punit Bathija</span>
         <CloseIcon />
       </div>
+      <Messages />
+      <Input />
     </div>
   );
 };
