@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-impor;
+import Search from "./Search";
 
 const Sidebar = () => {
   return (

@@ -76,3 +76,75 @@
         }
     }
 }
+
+.home{
+    background-color: rgb(36, 35, 35);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+   .container{
+    border: 1px solid white;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    .sidebar{
+        flex: 1;
+        border-right: 1px solid white;
+        .navbar{
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            justify-content:space-around;
+            background-color: black;
+            font-weight: 200;
+            .profile{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        .search{
+            display: flex;
+            flex-direction: column;
+            .search-form{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border-radius: 20px;
+            margin: 10px;
+            input{
+            height: 100%;
+            width: 100%;
+            outline-style: none;
+            border: none;
+        }
+        }
+        .search-results{
+            display: flex;
+            gap: 10px;
+            align-items: center; 
+            margin: 20px;
+            padding: 3%;
+            border-bottom: 1px solid white;
+            font-weight: 200;
+        .profile{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+        }
+    }
+    .chat{
+        flex: 2;
+        background-color: rgb(106, 106, 106);
+    }
+   }
+}
