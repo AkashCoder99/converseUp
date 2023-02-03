@@ -3,13 +3,30 @@ import shoe from "../Assets/shoe.svg";
 import lace from "../Assets/lace.svg";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import GoogleIcon from "@mui/icons-material/Google";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db, storage } from "../firebase.config";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
+import { auth, db, storage, provider } from "../firebase.config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
   const [err, setErr] = useState(false);
+  const signInWithGoogle = async (e) => {
+    e.preventDefault();
+    await signInWithPopup(auth, provider).then((res) => {
+      const user = res.user;
+      setDoc(doc(db, "users", user.uid), {
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+      });
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const displayName = e.target[0].value;
@@ -65,7 +82,7 @@ const Register = () => {
             Knot Up!
             <img src={lace} className="icon" alt="lace" />
           </button>
-          <button className="btn">
+          <button className="btn" onClick={signInWithGoogle}>
             Knot Up using <GoogleIcon />
           </button>
           {err && <span>Something went wrong...</span>}
