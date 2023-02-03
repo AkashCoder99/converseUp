@@ -39,6 +39,7 @@ const Register = () => {
             setErr(true);
           }
         });
+        console.log(res.user);
       });
     } catch (err) {
       setErr(true);
