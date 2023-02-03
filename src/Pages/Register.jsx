@@ -11,9 +11,11 @@ import {
 import { auth, db, storage, provider } from "../firebase.config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [err, setErr] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,6 +43,7 @@ const Register = () => {
             });
 
             await setDoc(doc(db, "userChats", res.user.uid), {});
+            navigate("/");
           } catch (err) {
             console.log(err);
             setErr(true);
@@ -62,7 +65,10 @@ const Register = () => {
         email: user.email,
         photoURL: user.photoURL,
       });
+      setDoc(doc(db, "userChats", user.uid), {});
     });
+
+    navigate("/");
   };
 
   return (
