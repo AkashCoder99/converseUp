@@ -3,8 +3,10 @@ import shoe from "../Assets/shoe.svg";
 import lace from "../Assets/lace.svg";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import GoogleIcon from "@mui/icons-material/Google";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase.config";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth, db, storage } from "../firebase.config";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -14,21 +16,34 @@ const Register = () => {
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0];
-
     try {
-      const res = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      ).then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+
+      const storageRef = ref(storage, displayName);
+
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
+          try {
+            await updateProfile(res.user, {
+              displayName,
+              photoURL: downloadURL,
+            });
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              email,
+              photoURL: downloadURL,
+            });
+          } catch (err) {
+            console.log(err);
+            setErr(true);
+          }
+        });
       });
-    } catch (error) {
+    } catch (err) {
       setErr(true);
     }
   };
-
   return (
     <div className="form-container">
       <div className="form-wrapper">
