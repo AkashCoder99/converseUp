@@ -14,18 +14,6 @@ import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
   const [err, setErr] = useState(false);
-  const signInWithGoogle = async (e) => {
-    e.preventDefault();
-    await signInWithPopup(auth, provider).then((res) => {
-      const user = res.user;
-      setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-      });
-    });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,6 +39,8 @@ const Register = () => {
               email,
               photoURL: downloadURL,
             });
+
+            await setDoc(doc, (db, "userChats", res.user.uid), {});
           } catch (err) {
             console.log(err);
             setErr(true);
@@ -62,6 +52,19 @@ const Register = () => {
       setErr(true);
     }
   };
+  const signInWithGoogle = async (e) => {
+    e.preventDefault();
+    await signInWithPopup(auth, provider).then((res) => {
+      const user = res.user;
+      setDoc(doc(db, "users", user.uid), {
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+      });
+    });
+  };
+
   return (
     <div className="form-container">
       <div className="form-wrapper">
