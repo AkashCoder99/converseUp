@@ -1,5 +1,7 @@
 import React from "react";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase.config";
 
 const Navbar = () => {
   return (
@@ -10,7 +12,7 @@ const Navbar = () => {
         alt="profile"
       />
       <span>Punit Bathija</span>
-      <LogoutIcon />
+      <LogoutIcon onClick={() => signOut(auth)} />
     </div>
   );
 };
