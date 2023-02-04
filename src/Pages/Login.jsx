@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import shoe from "../Assets/shoe.svg";
 import run from "../Assets/run.svg";
 import GoogleIcon from "@mui/icons-material/Google";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase.config";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, provider } from "../firebase.config";
+import ErrorIcon from "@mui/icons-material/Error";
 
 const Login = () => {
   const [err, setErr] = useState(false);
@@ -22,6 +23,12 @@ const Login = () => {
     }
   };
 
+  const signInWithGoogle = async (e) => {
+    e.preventDefault();
+    await signInWithPopup(auth, provider);
+    navigate("/");
+  };
+
   return (
     <div className="form-container">
       <div className="form-wrapper">
@@ -37,14 +44,26 @@ const Login = () => {
             <img src={run} className="icon" alt="run" />
           </button>
 
-          <button className="btn">
+          <button className="btn" onClick={signInWithGoogle}>
             Charge In using <GoogleIcon />
           </button>
-          {err && <span>Something went wrong!</span>}
+          {err && (
+            <span
+              style={{
+                color: "black",
+                textAlign: "center",
+              }}
+            >
+              <ErrorIcon color="error" />
+              Something went wrong!
+            </span>
+          )}
         </form>
         <p className="login">
           don't have an account with us?
-          <span style={{ color: "cyan", marginLeft: "5px" }}> register</span>
+          <span style={{ color: "cyan", marginLeft: "5px" }}>
+            <Link to="/register"> register </Link>
+          </span>
         </p>
       </div>
     </div>

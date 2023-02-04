@@ -11,7 +11,8 @@ import {
 import { auth, db, storage, provider } from "../firebase.config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ErrorIcon from "@mui/icons-material/Error";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -94,11 +95,18 @@ const Register = () => {
           <button className="btn" onClick={signInWithGoogle}>
             Knot Up using <GoogleIcon />
           </button>
-          {err && <span>Something went wrong...</span>}
+          {err && (
+            <span style={{ color: "black", textAlign: "center" }}>
+              <ErrorIcon color="error" />
+              Something went wrong...
+            </span>
+          )}
         </form>
         <p className="login">
           have an account with us?
-          <span style={{ color: "cyan", marginLeft: "5px" }}> login</span>
+          <span style={{ color: "cyan", marginLeft: "5px" }}>
+            <Link to="/login"> login</Link>
+          </span>
         </p>
       </div>
     </div>
