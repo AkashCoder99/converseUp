@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
+import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="navbar">
-      <img
-        className="profile"
-        src="https://pbs.twimg.com/profile_images/1590363423011110912/x0jZMgC5_400x400.jpg"
-        alt="profile"
-      />
-      <span>Punit Bathija</span>
+      <img className="profile" src={currentUser.photoURL} alt="profile" />
+      <span>{currentUser.displayName}</span>
       <LogoutIcon onClick={() => signOut(auth)} />
     </div>
   );
