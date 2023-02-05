@@ -80,6 +80,7 @@ const Input = () => {
         type="text"
         placeholder="enter a chat"
         onChange={(e) => setText(e.target.value)}
+        value={text}
       />
       <div className="chat-icons">
         <input
