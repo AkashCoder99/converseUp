@@ -1,7 +1,17 @@
 import React, { useContext, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { db } from "../firebase.config";
-import { query, collection, where, getDocs, setDoc } from "firebase/firestore";
+import {
+  query,
+  collection,
+  where,
+  getDocs,
+  getDoc,
+  setDoc,
+  doc,
+  updateDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { AuthContext } from "../Context/AuthContext";
 
 const Search = () => {
@@ -16,11 +26,32 @@ const Search = () => {
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
     try {
-      const userRef = await getDocs(db, "chats", combinedId);
+      const userRef = await getDoc(doc(db, "chats", combinedId));
       if (!userRef.exists()) {
-        await setDoc(doc, (db, "chats", combinedId), { messages: [] });
+        await setDoc(doc(db, "chats", combinedId), { messages: [] });
+
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: user.uid,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
       }
-    } catch (err) {}
+      setUsername("");
+      setUser(null);
+    } catch (err) {
+      setErr();
+    }
   };
 
   const handleSearch = async () => {
@@ -52,6 +83,7 @@ const Search = () => {
           onChange={(e) => setUsername(e.target.value)}
           placeholder="search for a user"
           onKeyDown={handleKey}
+          value={username}
         />
       </div>
       {err && (
