@@ -10,7 +10,6 @@ const Chats = () => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
         setChats(doc.data());
-        console.log(doc.data());
       });
 
       return () => {
@@ -22,17 +21,21 @@ const Chats = () => {
 
   return (
     <div className="chats">
-      <div className="search-results">
-        <img
-          className="profile"
-          src="https://pbs.twimg.com/profile_images/1590363423011110912/x0jZMgC5_400x400.jpg"
-          alt="profile"
-        />
-        <div className="profile-content">
-          <span>Punit Bathija</span>
-          <span>Hello</span>
+      {Object.entries(chats)?.map((chat) => (
+        <div className="search-results" key={chat[0]}>
+          <img
+            className="profile"
+            src={chat[1].userInfo.photoURL}
+            alt="profile"
+          />
+          <div className="profile-content">
+            <span>{chat[1].userInfo.displayName}</span>
+            <span className="lastMessage">
+              {chat[1].userInfo.lastMessage?.text}
+            </span>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
