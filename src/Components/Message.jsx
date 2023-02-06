@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
+import moment from "moment/moment";
 
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
+
+  let date = message.date.toDate();
 
   const ref = useRef();
 
@@ -25,7 +28,7 @@ const Message = ({ message }) => {
           }
           alt="profile"
         />
-        <span>Just Now</span>
+        <span className="date">{moment(date).format("ddd, hh:mm")}</span>
       </div>
       <div className="message-content">
         <p>{message.text}</p>
