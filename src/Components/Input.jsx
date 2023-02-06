@@ -23,6 +23,10 @@ const Input = () => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSend();
+  };
+
   const handleSend = async () => {
     if (img) {
       const storageRef = ref(storage, uuid());
@@ -47,7 +51,10 @@ const Input = () => {
           });
         }
       );
-    } else {
+      setImg(null);
+    }
+    if (text === "") return;
+    else {
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
@@ -55,7 +62,8 @@ const Input = () => {
           senderId: currentUser.uid,
           date: Timestamp.now(),
         }),
-      });
+      }); 
+      setText("");
     }
 
     await updateDoc(doc(db, "userChats", currentUser.uid), {
@@ -84,6 +92,7 @@ const Input = () => {
         placeholder="enter a chat"
         onChange={(e) => setText(e.target.value)}
         value={text}
+        onKeyDown={handleKey}
       />
       <div className="chat-icons">
         <input
@@ -91,6 +100,7 @@ const Input = () => {
           id="addPhoto"
           style={{ display: "none" }}
           onChange={(e) => setImg(e.target.files[0])}
+          onKeyDown={handleKey}
         />
         <label htmlFor="addPhoto">
           <AddPhotoAlternateIcon fontSize="medium" />

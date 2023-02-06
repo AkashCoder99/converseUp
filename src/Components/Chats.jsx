@@ -45,7 +45,11 @@ const Chats = () => {
             />
             <div className="profile-content">
               <span>{chat[1].userInfo.displayName}</span>
-              <span className="lastMessage">{chat[1].lastMessage?.text}</span>
+              <span className="lastMessage">
+                {chat[1].lastMessage?.text.length > 30
+                  ? chat[1].lastMessage?.text.substring(0, 29) + "..."
+                  : chat[1].lastMessage?.text}
+              </span>
             </div>
           </div>
         ))}
