@@ -61,11 +61,8 @@ const Login = () => {
         </form>
         <p className="login">
           don't have an account with us?
-          <span>
-            <Link to="/register" style={{ color: "cyan", marginLeft: "5px" }}>
-              {" "}
-              Register{" "}
-            </Link>
+          <span style={{ textColor: "red", marginLeft: "8px" }}>
+            <Link to="/register"> Register </Link>
           </span>
         </p>
       </div>

@@ -20,21 +20,22 @@ const Message = ({ message }) => {
       className={`message ${message.senderId === currentUser.uid && "owner"}`}
     >
       <div className="message-info">
-        <img
+        {/* <img
           src={
             message.senderId === currentUser.uid
               ? currentUser.photoURL
               : data.user.photoURL
           }
           alt="profile"
-        />
-        <span className="date">{moment(date).format("ddd, hh:mm")}</span>
+        /> */}
       </div>
       <div className="message-content">
         <p>{message.text}</p>
         {message.img && (
           <img alt="sharedPhoto" src={message.img} className="shared-photo" />
         )}
+        <hr />
+        <span className="date">{moment(date).format("ddd, hh:mm")}</span>
       </div>
     </div>
   );

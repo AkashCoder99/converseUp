@@ -59,7 +59,7 @@
                 background-color: transparent;
                 outline: none;
                 border: none;
-                border-bottom: 2px solid rgb(36, 35, 35);
+                border-bottom: 2px solid rgb(36, 35, 35) ;
                 color: black;
             }
             .file{
@@ -73,8 +73,6 @@
             }
         }
         .btn{
-            cursor: pointer;
-            border: 1px solid black;
             display: flex;
             align-items: center;
             gap: 2px;

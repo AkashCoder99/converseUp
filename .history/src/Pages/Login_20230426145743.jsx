@@ -62,7 +62,7 @@ const Login = () => {
         <p className="login">
           don't have an account with us?
           <span>
-            <Link to="/register" style={{ color: "cyan", marginLeft: "5px" }}>
+            <Link to="/register" style={{ color: "cyan", marginLeft: "8px" }}>
               {" "}
               Register{" "}
             </Link>

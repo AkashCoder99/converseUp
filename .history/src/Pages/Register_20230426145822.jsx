@@ -107,7 +107,7 @@ const Register = () => {
           <span>
             <Link to="/login" style={{ color: "cyan", marginLeft: "5px" }}>
               {" "}
-              Login
+              login
             </Link>
           </span>
         </p>
