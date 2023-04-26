@@ -126,7 +126,6 @@
             align-items: center;
             justify-content:space-around;
             background-color: black;
-            font-size: 20px;
             @include mobile{
                 display: flex;
                 gap: 4px;
@@ -255,7 +254,6 @@
             padding: 16px;
             font-weight: 400;
             justify-content: center;
-            gap: 10px;
             align-items: center;
             justify-items: center;
             margin: auto;

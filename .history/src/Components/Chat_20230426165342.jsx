@@ -8,7 +8,7 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="chatInfo">
-        <img className="profile" src={data.user?.photoURL} alt="user" />
+        <img className="profile" src={data.user?.photoURL} alt="user-profile" />
         <span>{data.user?.displayName}</span>
       </div>
       <Messages />

@@ -8,8 +8,13 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="chatInfo">
-        <img className="profile" src={data.user?.photoURL} alt="user" />
+    {if(data)
+    return(
+      <div>
+        <img className="profile" src={data.user?.photoURL}></img>
         <span>{data.user?.displayName}</span>
+        </div>):
+        return(<p>Please select or add a user</p>)}
       </div>
       <Messages />
       <Input />

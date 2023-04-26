@@ -8,8 +8,8 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="chatInfo">
-        <img className="profile" src={data.user?.photoURL} alt="user" />
-        <span>{data.user?.displayName}</span>
+        <img className="profile" src={data.user?.photoURL} alt="user-profile" />
+        <span>{data.user?.displayName}Hello</span>
       </div>
       <Messages />
       <Input />
