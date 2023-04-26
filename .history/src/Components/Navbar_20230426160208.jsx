@@ -11,11 +11,7 @@ const Navbar = () => {
     <div className="navbar">
       <img className="profile" src={currentUser.photoURL} alt="profile" />
       <span className="selfname">{currentUser.displayName}</span>
-      <LogoutIcon
-        onClick={() => signOut(auth)}
-        className="logouticon"
-        style={{ cursor: "pointer" }}
-      />
+      <LogoutIcon onClick={() => signOut(auth)} />
     </div>
   );
 };

@@ -150,7 +150,7 @@
             display: flex;
             flex-direction: column;
             @include mobile{
-                // display: none;
+                display: none;
             }
             .search-form{
             display: flex;
@@ -167,9 +167,6 @@
         }
         }
         .search-results{
-            @include mobile{
-                font-size: 12px;
-            }
             display: flex;
             gap: 10px;
             align-items: center; 
@@ -209,14 +206,12 @@
                 border-radius: 50%;
                 object-fit: cover;   
                 display: flex;
-                align-items:center;
-                text-align: center;
-                justify-content: center;
-                justify-items: center;
+                align-items:flex-start;
+                justify-content: flex-start;
+                justify-items: flex-start;
                 margin: auto;
                 border: 1px solid wheat;
                 margin-top: 20px;
-                margin-left: -40px;
             }
                 width: 35px;
                 height: 35px;
@@ -245,22 +240,14 @@
     .chat{
         flex: 3;
         background-color: rgb(36, 35, 35);
-        @include mobile{
-            font-size: 12px;
-        }
         .chatInfo{
             display: flex;
             background-color: black;
             padding: 16px;
             font-weight: 400;
-            justify-content: space-around;
-            align-items: center;
-            justify-items: center;
-            margin: auto;
+            justify-content: space-between;
             font-size: 18px;
-            @include mobile{
-                font-size: 14px;
-            }
+            align-items: center;
             .profile{
                 width: 35px;
                 height: 35px;
@@ -309,10 +296,6 @@
             }
 
         .shared-photo{
-            @include mobile{
-                height: 180px;
-                width: 180px;
-            }
             height: 250px;
             width: 250px;
         }   
@@ -357,16 +340,13 @@
                 &::placeholder {
                     color:white;
                   }
-                  @include mobile{
-                    font-size: 12px;
-                   }
+                
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }

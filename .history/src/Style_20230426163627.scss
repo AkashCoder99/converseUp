@@ -342,6 +342,9 @@
             display: flex;
             height: 35px;
             padding: 10px;
+           @include mobile{
+            font-size: 12px;
+           }
             input{
                 background-color: black;
                 color: white;    
@@ -357,16 +360,13 @@
                 &::placeholder {
                     color:white;
                   }
-                  @include mobile{
-                    font-size: 12px;
-                   }
+                 
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }

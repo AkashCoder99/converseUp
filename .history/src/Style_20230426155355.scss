@@ -113,10 +113,7 @@
     overflow: hidden;
     .sidebar{
         @include mobile{
-            min-width: 30%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            // display: flex;
         }
         flex: 1;
         border-right: 1px solid white;
@@ -126,21 +123,11 @@
             align-items: center;
             justify-content:space-around;
             background-color: black;
-            @include mobile{
-                display: flex;
-                gap: 4px;
-                font-size: 12px;
-            }
             .profile{
                 width: 35px;
                 height: 35px;
                 border-radius: 50%;
                 object-fit: cover;
-                // @include mobile{
-                //     display: none;
-                // }
-                }
-            .selfname{
                 @include mobile{
                     display: none;
                 }
@@ -150,7 +137,7 @@
             display: flex;
             flex-direction: column;
             @include mobile{
-                // display: none;
+                display: none;
             }
             .search-form{
             display: flex;
@@ -167,9 +154,6 @@
         }
         }
         .search-results{
-            @include mobile{
-                font-size: 12px;
-            }
             display: flex;
             gap: 10px;
             align-items: center; 
@@ -204,20 +188,16 @@
                 margin-top: -20px;
                 .profile{
                     @include mobile{
-                width: 35px;
-                height: 35px;
+                margin-top: 30px;
+                width: 25px;
+                height: 25px;
                 border-radius: 50%;
                 object-fit: cover;   
                 display: flex;
                 align-items:center;
                 text-align: center;
-                justify-content: center;
-                justify-items: center;
-                margin: auto;
-                border: 1px solid wheat;
-                margin-top: 20px;
-                margin-left: -40px;
-            }
+
+                    }
                 width: 35px;
                 height: 35px;
                 border-radius: 50%;
@@ -245,22 +225,14 @@
     .chat{
         flex: 3;
         background-color: rgb(36, 35, 35);
-        @include mobile{
-            font-size: 12px;
-        }
         .chatInfo{
             display: flex;
             background-color: black;
             padding: 16px;
             font-weight: 400;
-            justify-content: space-around;
-            align-items: center;
-            justify-items: center;
-            margin: auto;
+            justify-content: space-between;
             font-size: 18px;
-            @include mobile{
-                font-size: 14px;
-            }
+            align-items: center;
             .profile{
                 width: 35px;
                 height: 35px;
@@ -309,10 +281,6 @@
             }
 
         .shared-photo{
-            @include mobile{
-                height: 180px;
-                width: 180px;
-            }
             height: 250px;
             width: 250px;
         }   
@@ -357,16 +325,13 @@
                 &::placeholder {
                     color:white;
                   }
-                  @include mobile{
-                    font-size: 12px;
-                   }
+                
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }

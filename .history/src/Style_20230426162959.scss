@@ -254,13 +254,11 @@
             padding: 16px;
             font-weight: 400;
             justify-content: space-around;
-            align-items: center;
-            justify-items: center;
-            margin: auto;
-            font-size: 18px;
             @include mobile{
-                font-size: 14px;
+                font-size: 12px;
             }
+            font-size: 18px;
+            align-items: center;
             .profile{
                 width: 35px;
                 height: 35px;
@@ -357,16 +355,13 @@
                 &::placeholder {
                     color:white;
                   }
-                  @include mobile{
-                    font-size: 12px;
-                   }
+                
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }

@@ -357,16 +357,13 @@
                 &::placeholder {
                     color:white;
                   }
-                  @include mobile{
-                    font-size: 12px;
-                   }
+                
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }

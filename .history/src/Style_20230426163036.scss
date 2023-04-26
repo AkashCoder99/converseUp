@@ -255,8 +255,7 @@
             font-weight: 400;
             justify-content: space-around;
             align-items: center;
-            justify-items: center;
-            margin: auto;
+            
             font-size: 18px;
             @include mobile{
                 font-size: 14px;
@@ -357,16 +356,13 @@
                 &::placeholder {
                     color:white;
                   }
-                  @include mobile{
-                    font-size: 12px;
-                   }
+                
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }

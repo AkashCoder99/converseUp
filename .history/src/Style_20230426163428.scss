@@ -358,15 +358,14 @@
                     color:white;
                   }
                   @include mobile{
-                    font-size: 12px;
-                   }
+                    height: 15px;
+                }
             }
             .chat-icons{
                 display: flex;
                 gap: 6px;
                 padding: 5px;
                 cursor: pointer;
-                
             }
         }
     }
