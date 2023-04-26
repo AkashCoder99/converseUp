@@ -5,7 +5,7 @@ import moment from "moment/moment";
 
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
-  // const { data } = useContext(ChatContext);
+  const { data } = useContext(ChatContext);
 
   let date = message.date.toDate();
 
