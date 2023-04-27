@@ -106,8 +106,7 @@
     justify-content: center;
     color: white;
    .container{
-    padding: 5px;
-    border: 0.5px solid white;
+    border: 1px solid white;
     height: 80%;
     display: flex;
     border-radius: 10px;
@@ -351,6 +350,7 @@
                 width: 80%;
                 outline: none;
                 border: none;
+                border-bottom: 1px solid white;
                 height: 100%;
                 font-size: 18px;
                 justify-content: center;

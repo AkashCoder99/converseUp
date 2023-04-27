@@ -106,8 +106,7 @@
     justify-content: center;
     color: white;
    .container{
-    padding: 5px;
-    border: 0.5px solid white;
+    border: 1px solid white;
     height: 80%;
     display: flex;
     border-radius: 10px;
@@ -302,7 +301,7 @@
         .message-content{
             background-color: white;
             color: black;
-            border-radius: 0px 15px 15px 15px;
+            border-radius: 1px 10px 10px 10px;
             width: fit-content;
             padding: 6px 7px 8px 9px;
             margin-bottom: 10px;
@@ -331,9 +330,9 @@
             .message-content{
                 align-items: flex-end;
                 background-color: #130f0f;
-                border-radius: 15px 0px 15px 15px;
+                border-radius: 35px 0px 35px 35px;
                 color: white;
-                padding: 6px 7px 8px 9px;
+                // padding: 6px 7px 8px 9px;
 
             }
         }
@@ -351,6 +350,7 @@
                 width: 80%;
                 outline: none;
                 border: none;
+                border-bottom: 1px solid white;
                 height: 100%;
                 font-size: 18px;
                 justify-content: center;

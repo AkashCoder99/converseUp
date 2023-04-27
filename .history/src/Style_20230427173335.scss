@@ -97,8 +97,29 @@
     }
 }
 
+
+.logo-text{
+    background-color: azure;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color:  black;
+    width: fit-content;
+    padding: 3px;
+    text-align: center;
+    .logo{
+    width: 60px;
+    height: 60px;
+}
+}
+.wrap{
+    background-color: rgb(36, 35, 35);
+    ;
+}
+
+
 .home{
-    cursor: default;
     background-color: rgb(36, 35, 35);
     height: 100vh;
     display: flex;
@@ -106,8 +127,8 @@
     justify-content: center;
     color: white;
    .container{
-    padding: 5px;
-    border: 0.5px solid white;
+    border: 1px solid white;
+    width: 85%;
     height: 80%;
     display: flex;
     border-radius: 10px;
@@ -119,7 +140,7 @@
             flex-direction: column;
             align-items: center;
         }
-        // flex: 1;
+        flex: 1;
         border-right: 1px solid white;
         .navbar{
             display: flex;
@@ -245,7 +266,7 @@
     }
     }
     .chat{
-        // flex: 1;
+        flex: 3;
         background-color: rgb(36, 35, 35);
         @include mobile{
             font-size: 12px;
@@ -302,7 +323,7 @@
         .message-content{
             background-color: white;
             color: black;
-            border-radius: 0px 15px 15px 15px;
+            border-radius: 1px 10px 10px 10px;
             width: fit-content;
             padding: 6px 7px 8px 9px;
             margin-bottom: 10px;
@@ -330,8 +351,8 @@
             flex-direction: row-reverse;
             .message-content{
                 align-items: flex-end;
-                background-color: #130f0f;
-                border-radius: 15px 0px 15px 15px;
+                background-color: black;
+                border-radius: 10px 0px 10px 10px;
                 color: white;
                 padding: 6px 7px 8px 9px;
 
@@ -351,6 +372,7 @@
                 width: 80%;
                 outline: none;
                 border: none;
+                border-bottom: 1px solid white;
                 height: 100%;
                 font-size: 18px;
                 justify-content: center;
