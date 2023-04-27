@@ -82,7 +82,7 @@ const Search = () => {
   return (
     <div className="search">
       <div className="search-form">
-        <SearchIcon color="action" onClick={handleSearch} />
+        <SearchIcon color="action" />
         <input
           type="text"
           onChange={(e) => setUsername(e.target.value)}
